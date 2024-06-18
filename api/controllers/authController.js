@@ -12,7 +12,6 @@ const registerUser = async (req, res) => {
             return res.status(400).send('Username is already associated with an account');
         }
 
-
         await db.Users.create({
             username,
             email,

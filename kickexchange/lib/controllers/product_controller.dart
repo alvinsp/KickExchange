@@ -63,8 +63,6 @@ class ProductController extends ChangeNotifier {
 
   Future<void> getCategories() async {
     state = ProductState.loading;
-    notifyListeners();
-
     try {
       String? token = await getToken();
       var response = await Dio().get(
@@ -465,7 +463,6 @@ class ProductController extends ChangeNotifier {
 
   Future<void> getFavorites() async {
     state = ProductState.loading;
-    notifyListeners();
     try {
       String? token = await getToken();
       var response = await Dio().get(

@@ -11,6 +11,29 @@ const getAllProducts = async (req, res) => {
     }
 };
 
+const getProductByCategoryId = async (req, res) => {
+    try {
+        const productCategoryId = req.params.categoryId;
+        const products = await db.Products.findAll({
+            where: {
+                categoryId: productCategoryId
+            },
+            include: [{
+                model: db.Categories,
+                as: 'Category'
+            }]
+        });
+        console.log(`Found products: ${JSON.stringify(products)}`);
+        if (products.length === 0) {
+            return res.status(404).json({ error: 'Product not found' });
+        }
+        res.json(products);
+    } catch (error) {
+        console.error('Error fetching products:', error);
+        res.status(500).json({ error: 'Error fetching products' });
+    }
+};
+
 const getProductById = async (req, res) => {
     try {
         const productId = req.params.id;
@@ -53,28 +76,6 @@ const getProductByName = async (req, res) => {
     }
 };
 
-const getProductByCategoryId = async (req, res) => {
-    try {
-        const productCategoryId = req.params.categoryId;
-        const products = await db.Products.findAll({
-            where: {
-                categoryId: productCategoryId
-            },
-            include: [{
-                model: db.Categories,
-                as: 'Category'
-            }]
-        });
-        console.log(`Found products: ${JSON.stringify(products)}`);
-        if (products.length === 0) {
-            return res.status(404).json({ error: 'Product not found' });
-        }
-        res.json(products);
-    } catch (error) {
-        console.error('Error fetching products:', error);
-        res.status(500).json({ error: 'Error fetching products' });
-    }
-};
 const createProduct = async (req, res) => {
     try {
         const { name, price, qty, categoryId, url } = req.body;
@@ -128,4 +129,4 @@ const deleteProduct = async (req, res) => {
     }
 };
 
-module.exports = { getAllProducts, getProductById,getProductByName, getProductByCategoryId, createProduct, updateProduct, deleteProduct }
+module.exports = { getAllProducts, getProductByCategoryId,getProductById,getProductByName, createProduct, updateProduct, deleteProduct }

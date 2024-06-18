@@ -80,7 +80,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ? Image.network(
                                       'http://192.168.100.107:3000/uploads/${profile.image}',
                                       key:
-                                          UniqueKey(), // Forces refresh when image changes
+                                          UniqueKey(), 
                                       fit: BoxFit.cover,
                                       loadingBuilder: (BuildContext context,
                                           Widget child,

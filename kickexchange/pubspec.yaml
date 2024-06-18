@@ -1,0 +1,67 @@
+name: kickexchange
+description: "Your Sneaker Marketplace"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.6
+  dio: ^5.4.3+1
+  firebase_auth: ^4.17.8
+  firebase_core: ^2.17.0
+  flutter:
+    sdk: flutter
+  image_picker: ^1.1.2
+  line_icons: ^2.0.3
+  lottie: ^3.1.2
+  provider: ^6.1.2
+  shared_preferences: ^2.2.3
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^3.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  image_path: "assets/images/icons.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: montserrat
+      fonts:
+        - asset: assets/fonts/montserrat/Montserrat-Thin.ttf
+          weight: 200
+        - asset: assets/fonts/montserrat/Montserrat-Light.ttf
+          weight: 300
+        - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/montserrat/Montserrat-Medium.ttf
+          weight: 600
+        - asset: assets/fonts/montserrat/Montserrat-Semibold.ttf
+          weight: 700
+        - asset: assets/fonts/montserrat/Montserrat-Bold.ttf
+          weight: 800
+        - asset: assets/fonts/montserrat/Montserrat-ExtraBold.ttf
+          weight: 900
+    - family: raleway
+      fonts:
+        - asset: assets/fonts/Raleway/Raleway-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/Raleway/Raleway-Medium.ttf
+          weight: 600
+        - asset: assets/fonts/Raleway/Raleway-Semibold.ttf
+          weight: 700
+        - asset: assets/fonts/Raleway/Raleway-Bold.ttf
+          weight: 800
+        - asset: assets/fonts/Raleway/Raleway-ExtraBold.ttf
+          weight: 900
